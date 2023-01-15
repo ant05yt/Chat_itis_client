@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chat_itis_client", "Chat_itis_client\Chat_itis_client.csproj", "{4D892C10-9EAC-4790-9DB4-CD91D2A3621F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementi di soluzione", "Elementi di soluzione", "{52C6FD0A-BF4D-476B-85E3-B76FC0FD5B2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D892C10-9EAC-4790-9DB4-CD91D2A3621F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D892C10-9EAC-4790-9DB4-CD91D2A3621F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D892C10-9EAC-4790-9DB4-CD91D2A3621F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D892C10-9EAC-4790-9DB4-CD91D2A3621F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {675C6A70-855C-405E-9DDC-72B5F58F9510}
+	EndGlobalSection
+EndGlobal
