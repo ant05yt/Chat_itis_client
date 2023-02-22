@@ -16,14 +16,16 @@ namespace Chat_itis_client
         public bool I_o { get; set; } // true= ricevuto false= inviato
         public string Data { get; set; }
         public string Mesaggio { get; set; }
+        public string Gruppo { get; set; }
 
         public db_messaggi() { }
-        public db_messaggi( string contatto, bool i_o, string data, string mesaggio)
+        public db_messaggi( string contatto, bool i_o, string data, string mesaggio,string gruppo)
         {
             Contatto = contatto;
             I_o = i_o;
             Data = data;
             Mesaggio = mesaggio;
+            Gruppo = gruppo;
         }
     }
 }

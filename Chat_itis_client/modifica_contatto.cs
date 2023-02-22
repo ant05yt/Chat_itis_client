@@ -40,7 +40,7 @@ namespace Chat_itis_client
             SQLiteConnection db = new SQLiteConnection(direcrtory + @"\ChatItisUser.db3");
             var sql = " SELECT * FROM db_contatti WHERE Num = " + Uc.Num;
             List<db_contatti> mex = db.Query<db_contatti>(sql);
-            db_contatti temp = new db_contatti(mex[0].Id,textBox1.Text, textBox2.Text/*,Properties.Resources.Account_User_PNG_Photo1*/);           
+            db_contatti temp = new db_contatti(mex[0].Id.ToString(),textBox1.Text, textBox2.Text/*,Properties.Resources.Account_User_PNG_Photo1*/);           
             db.InsertOrReplace(temp);
             db.Close();
             Form1.form1Istance.popola_listbox();

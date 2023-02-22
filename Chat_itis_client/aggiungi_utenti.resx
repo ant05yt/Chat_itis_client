@@ -117,41 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="chat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Account-User-PNG-Photo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Account-User-PNG-Photo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Account-User-PNG-Photo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Account-User-PNG-Photo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="chat1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="freccia" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\freccia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="freccia1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\freccia1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user_control_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user_control_img.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user_control_img_selected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user_control_img_selected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="graffetta" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\graffetta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="server_ip" xml:space="preserve">
-    <value>http://localhost:52156/default.aspx</value>
-  </data>
 </root>

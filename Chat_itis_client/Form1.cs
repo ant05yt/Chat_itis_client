@@ -33,10 +33,10 @@ namespace Chat_itis_client
             { 
                 form1Istance = this; 
                 tbx = textBox2;
-                 ;
+                 
                 if (System.IO.File.Exists(direcrtory+@"\ChatItisUser.db3")) 
                 {
-
+                    
                 }
                 else 
                 {  
@@ -55,20 +55,22 @@ namespace Chat_itis_client
                 List<db_utente> mex = db.Query<db_utente>(sql);
                 profilo_numero = mex[0].Num;
                 codice_numero = mex[0].Cod;
+                lbl_nome.Text = "numero=" + profilo_numero+"    codice="+ codice_numero;
                 db.Close();
                 textBox1.Visible = false;
                 pictureBox2.Visible = false;
+                pictureBox4.Visible = false;
                 tmr.Start();
                 flowLayoutPanel2.AutoScroll = false;
                 flowLayoutPanel2.HorizontalScroll.Maximum = 0;
+
             }
             // prende l'ip
             /*
             WebRequest wrGETURL = WebRequest.Create("http://danielesirangelo.altervista.org/mioIP.html");
             Stream objStream = wrGETURL.GetResponse().GetResponseStream();
             StreamReader objReader = new StreamReader(objStream);
-            server_ip =  objReader.ReadLine();
-           */
+            server_ip =  objReader.ReadLine();   */                
             popola_listbox();
         }
 
@@ -83,7 +85,7 @@ namespace Chat_itis_client
             public System.Windows.Forms.TextBox tbx;
             public SQLiteConnection db;
             string direcrtory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            string server_ip= "http://localhost:52156/default.aspx";
+            string server_ip= Properties.Resources.server_ip;
         #endregion
         #region gestione_oggetti_front_end
         //genera contatti
@@ -117,10 +119,55 @@ namespace Chat_itis_client
 
         }
         //genera messaggi
-        public void aggiorna_listbox()
+        public bool controllo_gruppo()
         {
+            try 
+            { 
             db = new SQLiteConnection(direcrtory + @"\ChatItisUser.db3");
-            var sql = " SELECT * FROM db_messaggi WHERE Contatto = " + contatto_numero;
+            var sql1 = "SELECT * FROM db_contatti WHERE Num = '" + contatto_numero+"'";
+            List<db_contatti> temp = db.Query<db_contatti>(sql1);
+                for (int i = 0; i < temp.Count; i++)
+                {
+                    if (temp[i].Gruppo == "1")
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                if (e is SQLiteException)
+                {
+                    
+                }
+            }
+             
+            return false;
+        }
+        public void aggiorna_listbox()
+        {            
+            db = new SQLiteConnection(direcrtory + @"\ChatItisUser.db3");
+            var sql = "";
+            //controlla se contatto_numero sia un gruppo o 
+            try
+            {                             
+                if (controllo_gruppo())
+                {
+                    //gruppo
+                    sql = " SELECT * FROM db_messaggi WHERE gruppo = '" + contatto_numero+"'";
+
+                }
+                else
+                {
+                    //contatto
+                    sql = " SELECT * FROM db_messaggi WHERE Contatto = '" + contatto_numero + "' AND gruppo IS NULL";
+                }
+            }
+            catch (Exception e)
+            {
+                if (e is SQLiteException)
+                {
+
+                }
+            }
             List<db_messaggi> mex;
             flowLayoutPanel2.Controls.Clear();
             messaggi_contatto_selezionato.Clear();
@@ -183,6 +230,7 @@ namespace Chat_itis_client
 
             textBox1.Visible = true;
             pictureBox2.Visible = true;
+            pictureBox4.Visible = true;
         }
         #endregion   
         #region comunicazione 
@@ -194,23 +242,26 @@ namespace Chat_itis_client
               //crea un oggetto WebRequest
                 WebRequest request = WebRequest.Create(server_ip);
                 request.Method = "POST";
-
                 //imposta il contenuto della richiesta come un oggetto JSON
-                string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject("010" + "/-/" + contatto_numero + "/-/" + profilo_numero + "/-/" + codice_numero + "/-/"  + data.ToString() + "/-/" + testo);
+                string jsonData;
+                bool controllo = controllo_gruppo();
+                if (controllo)
+                {
+                    jsonData = Newtonsoft.Json.JsonConvert.SerializeObject("020" + "/-/" + contatto_numero + "/-/" + profilo_numero + "/-/" + codice_numero + "/-/"  + data.ToString() + "/-/" + testo);
+                }
+                else
+                {
+                     jsonData = Newtonsoft.Json.JsonConvert.SerializeObject("010" + "/-/" + contatto_numero + "/-/" + profilo_numero + "/-/" + codice_numero + "/-/"  + data.ToString() + "/-/" + testo);
+                }
+                
                 byte[] byteArray = Encoding.UTF8.GetBytes(jsonData);
                 request.ContentType = "application/json";
-                request.ContentLength = byteArray.Length;
-
+                request.ContentLength = byteArray.Length; 
                 //invia i dati della richiesta
                 using (Stream dataStream = request.GetRequestStream())
                 {
                     dataStream.Write(byteArray, 0, byteArray.Length);
                 }
-  /*                
-                string query = "?Q=" + "010" + "/-/" + contatto_numero + "/-/" + profilo_numero + "/-/" + codice_numero + "/-/"  + data.ToString() + "/-/" + testo;
-                WebRequest wrGETURL = WebRequest.Create( + query);
-*/
-
                 //ottieni risposta
                 Stream objStream = request.GetResponse().GetResponseStream();
                 StreamReader objReader = new StreamReader(objStream);
@@ -218,7 +269,11 @@ namespace Chat_itis_client
                 if(sLine != "Error")
                 {
                     db = new SQLiteConnection(direcrtory + @"\ChatItisUser.db3");
-                    db_messaggi temp = new db_messaggi(contatto_numero, false, data.ToString(), testo);
+                    db_messaggi temp;
+                    if(controllo)
+                        temp = new db_messaggi(profilo_numero, false, data.ToString(), testo,contatto_numero );
+                    else
+                        temp = new db_messaggi(contatto_numero, false, data.ToString(), testo, null);
                     db.Insert(temp);
                     db.Close();
                     aggiorna_listbox();
@@ -247,14 +302,29 @@ namespace Chat_itis_client
                         for (int i = 0; i < strings.Length; i++)
                         {
                             string[] messaggio = strings[i].Split(separatingStrings1, System.StringSplitOptions.RemoveEmptyEntries);
-                            db_messaggi temp = new db_messaggi(messaggio[0], true, messaggio[1], messaggio[2]);                
-                            db.Insert(temp);
-                            if (!dict.Values.Contains(messaggio[0]))
+                            db_messaggi temp;
+                            if (messaggio.Length == 3)
                             {
-                                db_contatti temp1 = new db_contatti(messaggio[0], messaggio[0]);
-                                db.Insert(temp1);
-                                popola_listbox();
-                            }  
+                                temp = new db_messaggi(messaggio[0], true, messaggio[1], messaggio[2],null);
+                                db.Insert(temp);
+                                if (!dict.Values.Contains(messaggio[0]))
+                                {
+                                    db_contatti temp1 = new db_contatti(messaggio[0], messaggio[0],"0");
+                                    db.Insert(temp1);
+                                    popola_listbox();
+                                }
+                            }
+                            else
+                            {
+                                temp = new db_messaggi(messaggio[0], true, messaggio[1], messaggio[2], messaggio[3]);
+                                db.Insert(temp);
+                                if (!dict.Values.Contains(messaggio[3]))
+                                {
+                                    db_contatti temp1 = new db_contatti(messaggio[3], messaggio[3], "1");
+                                    db.Insert(temp1);
+                                    popola_listbox();
+                                }
+                            }                                                             
                         }
                         db.Close();
                         aggiorna_listbox();
@@ -280,9 +350,13 @@ namespace Chat_itis_client
 
         #endregion
         #region gestione_oggetti_form
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://danielesirangelo.altervista.org/TEAMSviluppatoriITIS/index.htm");
+        }
         public void UserC_click(string temp)
         {        
-            lbl_nome.Text = temp;
             contatto_numero = dict[temp];
             aggiorna_listbox();
             for (int i = 0; i < userControl1.Count; i++)
@@ -350,12 +424,7 @@ namespace Chat_itis_client
         {
 
         }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://danielesirangelo.altervista.org/TEAMSviluppatoriITIS/index.htm");
-        }
-
+        #region gestione immagini
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             string immagine = "img///";
@@ -387,6 +456,13 @@ namespace Chat_itis_client
                 return (Bitmap) Image.FromStream(ms, true);
 
             }
+        }
+        #endregion
+
+        private void btn_crea_gruppo_Click(object sender, EventArgs e)
+        {
+            aggiunta_dei_gruppi f = new aggiunta_dei_gruppi(profilo_numero,codice_numero, server_ip);
+            f.Show();
         }
     }
 }

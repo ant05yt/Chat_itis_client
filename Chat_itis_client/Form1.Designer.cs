@@ -34,30 +34,31 @@
             this.lbl_nome = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btn_add_contatto = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tmr1_riavvia_tmr = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btn_add_contatto = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_crea_gruppo = new System.Windows.Forms.Button();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,8 +122,33 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(134, 32);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(134, 31);
             this.tableLayoutPanel5.TabIndex = 5;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::Chat_itis_client.Properties.Resources.freccia1;
+            this.pictureBox2.Location = new System.Drawing.Point(70, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(61, 25);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Chat_itis_client.Properties.Resources.graffetta;
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(67, 31);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Visible = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // textBox1
             // 
@@ -131,9 +157,10 @@
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBox1.Location = new System.Drawing.Point(3, 3);
+            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox1.Size = new System.Drawing.Size(886, 31);
+            this.textBox1.Size = new System.Drawing.Size(886, 32);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Messaggio";
             this.textBox1.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBox1_DragDrop);
@@ -176,13 +203,15 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.BackColor = System.Drawing.Color.Black;
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.92008F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.07992F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
-            this.tableLayoutPanel3.Controls.Add(this.textBox2, 2, 0);
+            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Controls.Add(this.btn_crea_gruppo, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btn_add_contatto, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.pictureBox3, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.textBox2, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.pictureBox3, 2, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 630);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -193,7 +222,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(243, 3);
+            this.textBox2.Location = new System.Drawing.Point(234, 3);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(1, 20);
             this.textBox2.TabIndex = 0;
@@ -201,6 +230,36 @@
             this.textBox2.Text = "t";
             this.textBox2.Visible = false;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // btn_add_contatto
+            // 
+            this.btn_add_contatto.BackColor = System.Drawing.Color.Transparent;
+            this.btn_add_contatto.BackgroundImage = global::Chat_itis_client.Properties.Resources.user_control_img_selected;
+            this.btn_add_contatto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_add_contatto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_add_contatto.FlatAppearance.BorderSize = 0;
+            this.btn_add_contatto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add_contatto.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_add_contatto.Location = new System.Drawing.Point(0, 0);
+            this.btn_add_contatto.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_add_contatto.Name = "btn_add_contatto";
+            this.btn_add_contatto.Size = new System.Drawing.Size(77, 44);
+            this.btn_add_contatto.TabIndex = 3;
+            this.btn_add_contatto.Text = "aggiungi contatto";
+            this.btn_add_contatto.UseVisualStyleBackColor = false;
+            this.btn_add_contatto.Click += new System.EventHandler(this.btn_add_contatto_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Chat_itis_client.Properties.Resources.Logo;
+            this.pictureBox3.Location = new System.Drawing.Point(154, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(77, 44);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -254,6 +313,20 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::Chat_itis_client.Properties.Resources.Account_User_PNG_Photo1;
+            this.pictureBox1.Location = new System.Drawing.Point(193, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pictureBox1.Size = new System.Drawing.Size(56, 61);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // tmr1_riavvia_tmr
             // 
             this.tmr1_riavvia_tmr.Interval = 10000;
@@ -263,73 +336,23 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // btn_add_contatto
+            // btn_crea_gruppo
             // 
-            this.btn_add_contatto.BackColor = System.Drawing.Color.Transparent;
-            this.btn_add_contatto.BackgroundImage = global::Chat_itis_client.Properties.Resources.user_control_img_selected;
-            this.btn_add_contatto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_add_contatto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_add_contatto.FlatAppearance.BorderSize = 0;
-            this.btn_add_contatto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add_contatto.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_add_contatto.Location = new System.Drawing.Point(0, 0);
-            this.btn_add_contatto.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_add_contatto.Name = "btn_add_contatto";
-            this.btn_add_contatto.Size = new System.Drawing.Size(146, 44);
-            this.btn_add_contatto.TabIndex = 3;
-            this.btn_add_contatto.Text = "aggiungi contatto";
-            this.btn_add_contatto.UseVisualStyleBackColor = false;
-            this.btn_add_contatto.Click += new System.EventHandler(this.btn_add_contatto_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Chat_itis_client.Properties.Resources.Logo;
-            this.pictureBox3.Location = new System.Drawing.Point(146, 0);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(94, 44);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::Chat_itis_client.Properties.Resources.freccia1;
-            this.pictureBox2.Location = new System.Drawing.Point(70, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(61, 26);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Chat_itis_client.Properties.Resources.graffetta;
-            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(67, 32);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::Chat_itis_client.Properties.Resources.Account_User_PNG_Photo1;
-            this.pictureBox1.Location = new System.Drawing.Point(193, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.pictureBox1.Size = new System.Drawing.Size(56, 61);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_crea_gruppo.BackColor = System.Drawing.Color.Transparent;
+            this.btn_crea_gruppo.BackgroundImage = global::Chat_itis_client.Properties.Resources.user_control_img_selected;
+            this.btn_crea_gruppo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_crea_gruppo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_crea_gruppo.FlatAppearance.BorderSize = 0;
+            this.btn_crea_gruppo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_crea_gruppo.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_crea_gruppo.Location = new System.Drawing.Point(77, 0);
+            this.btn_crea_gruppo.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_crea_gruppo.Name = "btn_crea_gruppo";
+            this.btn_crea_gruppo.Size = new System.Drawing.Size(77, 44);
+            this.btn_crea_gruppo.TabIndex = 5;
+            this.btn_crea_gruppo.Text = "aggiungi gruppo";
+            this.btn_crea_gruppo.UseVisualStyleBackColor = false;
+            this.btn_crea_gruppo.Click += new System.EventHandler(this.btn_crea_gruppo_Click);
             // 
             // Form1
             // 
@@ -344,16 +367,16 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -381,6 +404,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btn_crea_gruppo;
     }
 }
 

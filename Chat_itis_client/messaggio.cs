@@ -16,6 +16,7 @@ namespace Chat_itis_client
         public messaggio()
         {
             InitializeComponent();
+
         }
         #region Properties
         [Category("Custom Props")]

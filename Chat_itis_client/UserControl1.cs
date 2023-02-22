@@ -62,12 +62,22 @@ namespace Chat_itis_client
             get { return _num; }
             set { _num = value;}
         }
+        [Category("Custom Props")]
+        private bool _a;
+        public bool a
+        {
+            get { return _a; }
+            set { _a= value; }
+        }
         #endregion
 
         public void contatto_Click(object sender, EventArgs e)
-        {
+        {       
+                if(!a)
                 Form1.form1Istance.tbx.Text = lbl_nome.Text;  
-                this.BackColor= Color.FromArgb(00013797134);
+                else
+                aggiungi_utenti.form1Istance.tbx.Text = lbl_nome.Text;
+            this.BackColor= Color.FromArgb(00013797134);
         }
 
         private void immagine_Click(object sender, EventArgs e)

@@ -32,7 +32,7 @@ namespace Chat_itis_client
         private void btn_Elimina_Click(object sender, EventArgs e)
         {
             SQLiteConnection db = new SQLiteConnection(direcrtory + @"\ChatItisUser.db3");
-            var sql = "DELETE FROM db_messaggi WHERE Contatto = '"+ Mex.Contatto+"' AND Data = '"+Mex.Data +"' AND Mesaggio = '"+Mex.Messaggio+"'";
+            var sql = "DELETE FROM db_messaggi WHERE Contatto = '"+ Mex.Contatto+"' AND Data = '"+Mex.Data+"'";// +"' AND Mesaggio = '"+Mex.Messaggio
             List<db_messaggi> mex = db.Query<db_messaggi>(sql);
             db.Close();
             Form1.form1Istance.aggiorna_listbox();

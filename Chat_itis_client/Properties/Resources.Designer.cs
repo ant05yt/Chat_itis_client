@@ -151,6 +151,15 @@ namespace Chat_itis_client.Properties {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a http://localhost:52156/default.aspx.
+        /// </summary>
+        internal static string server_ip {
+            get {
+                return ResourceManager.GetString("server_ip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap user_control_img {

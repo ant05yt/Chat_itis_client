@@ -15,22 +15,25 @@ namespace Chat_itis_client
         public int Id { get; set; }
         public string Name { get; set; }
         public string Num { get; set; }
-        //public Bitmap Img { get; set; }
+        public string Gruppo { get; set; }
+     //   public Bitmap Img { get; set; }
 
         public db_contatti() { }
 
-        public db_contatti( string name, string num /*,Bitmap img*/)
+        public db_contatti( string name, string num, string gruppo /*,Bitmap img*/)
         {
             Name = name;
             Num = num;
-           // Img = img;
+            Gruppo = gruppo;
+            //  Img = img;
         }
-        public db_contatti(int id,string name, string num /*,Bitmap img*/)
+        public db_contatti(int id,string name, string num, string gruppo /*,Bitmap img*/)
         {
             Id = id;
             Name = name;
             Num = num;
-            // Img = img;
+            Gruppo = gruppo;
+            //  Img = img;
         }
     }
 }

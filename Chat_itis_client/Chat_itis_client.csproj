@@ -84,6 +84,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="aggiungi_utenti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="aggiungi_utenti.Designer.cs">
+      <DependentUpon>aggiungi_utenti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="aggiunta dei gruppi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="aggiunta dei gruppi.Designer.cs">
+      <DependentUpon>aggiunta dei gruppi.cs</DependentUpon>
+    </Compile>
     <Compile Include="db_utente.cs" />
     <Compile Include="db_contatti.cs" />
     <Compile Include="db_messaggi.cs" />
@@ -131,6 +143,12 @@
     <Compile Include="messaggio.Designer.cs">
       <DependentUpon>messaggio.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="aggiungi_utenti.resx">
+      <DependentUpon>aggiungi_utenti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="aggiunta dei gruppi.resx">
+      <DependentUpon>aggiunta dei gruppi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
