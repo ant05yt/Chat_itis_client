@@ -67,7 +67,7 @@ namespace Chat_itis_client
             }
             // prende l'ip
             /*
-            WebRequest wrGETURL = WebRequest.Create("http://danielesirangelo.altervista.org/mioIP.html");
+            WebRequest wrGETURL = WebRequest.Create("");
             Stream objStream = wrGETURL.GetResponse().GetResponseStream();
             StreamReader objReader = new StreamReader(objStream);
             server_ip =  objReader.ReadLine();   */                
