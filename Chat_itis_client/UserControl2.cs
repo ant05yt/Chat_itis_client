@@ -4,26 +4,20 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Chat_itis_client
 {
-    public partial class UserControl1 : UserControl 
+    public partial class UserControl2 : UserControl
     {
-        
-        public UserControl1(string s_i,string p_n, string c_n)
+        public UserControl2(string s_i)
         {
             InitializeComponent();
             server_ip = s_i;
-            profilo_numero = p_n;
-            codice_numero = c_n;
         }
         string server_ip = "";
-        string profilo_numero;
-        string codice_numero;
         #region Properties
         [Category("Custom Props")]
         private string _username;
@@ -51,7 +45,8 @@ namespace Chat_itis_client
         public bool Selected
         {
             get { return _selected; }
-            set { 
+            set
+            {
                 _selected = value;
                 if (_selected)
                 {
@@ -65,7 +60,7 @@ namespace Chat_itis_client
         public string Num
         {
             get { return _num; }
-            set { _num = value;}
+            set { _num = value; }
         }
         [Category("Custom Props")]
         private bool _gruppo;
@@ -77,19 +72,9 @@ namespace Chat_itis_client
         #endregion
 
         public void contatto_Click(object sender, EventArgs e)
-        {       
-            Form1.form1Istance.tbx.Text = lbl_nome.Text;
-        }
-
-        private void immagine_Click(object sender, EventArgs e)
         {
-            modifica_contatto f = new modifica_contatto(this,server_ip,profilo_numero,codice_numero);
-            f.Show();
-            
+            aggiungi_utenti.form1Istance.tbx.Text = Num;
         }
-
-
-
 
     }
 }

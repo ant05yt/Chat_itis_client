@@ -22,7 +22,7 @@ namespace Chat_itis_client
             InitializeComponent();
             server_ip= s_i;
             codice = cod;
-            numero = num;   
+            numero = num;     
         }
         private string server_ip = "";
         private string numero = "";
@@ -38,7 +38,7 @@ namespace Chat_itis_client
             string[] strings = sLine.Split(separatingStrings1, System.StringSplitOptions.RemoveEmptyEntries);
             if (strings[0] == "si")
             {
-                aggiungi_utenti A = new aggiungi_utenti(strings[1], server_ip);
+                aggiungi_utenti A = new aggiungi_utenti(strings[1], server_ip,numero, codice);
                 A.Show();
             }
             else 

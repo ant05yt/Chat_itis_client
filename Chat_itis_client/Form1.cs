@@ -79,8 +79,8 @@ namespace Chat_itis_client
             List<UserControl1> userControl1 = new List<UserControl1>();
             List<messaggio> messaggi_contatto_selezionato = new List<messaggio>();
             string profilo_numero;
-            string contatto_numero;
             string codice_numero;
+            string contatto_numero;
             public static Form1 form1Istance;
             public System.Windows.Forms.TextBox tbx;
             public SQLiteConnection db;
@@ -99,10 +99,15 @@ namespace Chat_itis_client
             List<db_contatti> mex = db.Query<db_contatti>("SELECT * FROM db_contatti");
             for(int k = 0; k < mex.Count; k++)
             {                
-                userControl1.Add(new UserControl1());
+                userControl1.Add(new UserControl1(server_ip,profilo_numero,codice_numero));
                 userControl1[k].Username = mex[k].Name;
                 userControl1[k].Num = mex[k].Num;
-                dict.Add(mex[k].Name, mex[k].Num); 
+                    if (mex[k].Gruppo == "1")                    
+                        userControl1[k].gruppo = true;
+                    else
+                        userControl1[k].gruppo = false;
+
+                    dict.Add(mex[k].Name, mex[k].Num); 
                 flowLayoutPanel1.Controls.Add(userControl1[k]);
             }
             db.Close ();
@@ -355,7 +360,7 @@ namespace Chat_itis_client
         {
             System.Diagnostics.Process.Start("http://danielesirangelo.altervista.org/TEAMSviluppatoriITIS/index.htm");
         }
-        public void UserC_click(string temp)
+        private void UserC_click(string temp)
         {        
             contatto_numero = dict[temp];
             aggiorna_listbox();
